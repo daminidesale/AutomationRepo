@@ -1,0 +1,35 @@
+package Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import testbase.WebTestBase;
+
+public class RegisterPage extends WebTestBase {
+
+    @FindBy(id = "form-group--1")
+    WebElement firstNameTextBox;
+
+    @FindBy(id = "form-group--3")
+    WebElement emailTextBox;
+
+    @FindBy(id = "form-group--5")
+    WebElement passwordTextBox;
+
+    @FindBy(xpath = "//button[@class=\'ud-btn ud-btn-large ud-btn-brand ud-heading-md helpers--auth-submit-button--2K2dh\']")
+    WebElement signUpBtn;
+
+    public RegisterPage(){
+        PageFactory.initElements(driver,this);
+    }
+
+
+    public void register(String firstName, String email, String password){
+        firstNameTextBox.sendKeys("firstName");
+        emailTextBox.sendKeys("userName");
+        passwordTextBox.sendKeys("password");
+        signUpBtn.click();
+    }
+
+}
